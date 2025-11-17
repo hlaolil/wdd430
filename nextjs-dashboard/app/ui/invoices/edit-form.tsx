@@ -9,7 +9,6 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
-import { updateInvoice } from '@/app/lib/actions';
 import { updateInvoice, State } from '@/app/lib/actions';
 import { useActionState } from 'react';
 
@@ -25,7 +24,6 @@ export default function EditInvoiceForm({
   const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
   
   if (!invoice) return null; // or a loading/404 placeholder
-  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
  
   return <form action={formAction}>
     <div className="rounded-md bg-gray-50 p-4 md:p-6">
